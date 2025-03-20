@@ -128,3 +128,26 @@ jQuery(document).ready(function ($) {
   // custom code
 
 });
+
+// Theme Switcher
+document.addEventListener('DOMContentLoaded', function() {
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  // Vérifie s'il y a un thème sauvegardé
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', currentTheme);
+  
+  themeToggle.addEventListener('click', function() {
+    let theme = document.documentElement.getAttribute('data-theme');
+    let newTheme = theme === 'light' ? 'dark' : 'light';
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Animation du bouton
+    themeToggle.classList.add('clicked');
+    setTimeout(() => {
+      themeToggle.classList.remove('clicked');
+    }, 300);
+  });
+});

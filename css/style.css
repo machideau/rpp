@@ -1,7 +1,112 @@
+/* Variables pour les thèmes */
+:root {
+  /* Theme clair (défaut) */
+  --primary-color: #2dc997;
+  --bg-color: #fff;
+  --text-color: #666666;
+  --header-bg: rgba(52, 59, 64, 0.9);
+  --header-text: #fff;
+}
+
+/* Theme sombre */
+[data-theme="dark"] {
+  --primary-color: #2dc997;
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --header-bg: rgba(26, 26, 26, 0.9);
+  --header-text: #fff;
+}
+
+/* Application des variables */
 body {
-  background: #fff;
-  color: #666666;
-  font-family: "Open Sans", sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+/* Style du bouton de thème */
+.theme-switch-wrapper {
+  position: fixed; /* Change de relative à fixed pour le positionner par rapport à la fenêtre */
+  display: flex;
+  align-items: center;
+  right: 20px; /* Position depuis la droite */
+  bottom: 80px; /* Position depuis le bas, au-dessus du bouton "back-to-top" */
+  z-index: 996; /* Pour être sûr qu'il reste visible */
+}
+
+.theme-toggle {
+  background: rgba(0, 0, 0, 0.2); /* Fond légèrement transparent comme le bouton back-to-top */
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: #2dc997; /* Même effet hover que le bouton back-to-top */
+}
+
+.theme-toggle i {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  color: var(--header-text);
+  transition: all 0.3s ease;
+}
+
+.theme-toggle .light-icon {
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .dark-icon {
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-toggle .light-icon {
+  opacity: 1;
+}
+
+/* Ajustements pour le thème sombre */
+[data-theme="dark"] {
+  .box {
+    background: #2a2a2a;
+  }
+  
+  .nav-menu a {
+    color: var(--text-color);
+  }
+  
+  .nav-menu ul {
+    background: var(--bg-color);
+    border-color: #333;
+  }
+  
+  #mobile-body-overly {
+    background: rgba(0, 0, 0, 0.9);
+  }
+  
+  .section-header h3::after {
+    background: var(--primary-color);
+  }
+}
+
+@media (max-width: 768px) {
+  .theme-switch-wrapper {
+    bottom: 60px; /* Légèrement plus haut sur mobile */
+    right: 15px;
+  }
+  
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 a {
@@ -1015,6 +1120,203 @@ body.mobile-nav-active #mobile-nav-toggle {
   #header #logo img {
     max-height: 30px;
   }
+}
+
+/* Theme sombre - ajustements complets */
+[data-theme="dark"] {
+  /* Couleurs de base */
+  --primary-color: #2dc997;
+  --bg-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --header-bg: rgba(26, 26, 26, 0.9);
+  --header-text: #fff;
+
+  /* Sections générales */
+  .section-header .section-title {
+    color: var(--text-color);
+  }
+
+  .section-header .section-description {
+    color: #bbb;
+  }
+
+  /* Services */
+  #services {
+    background: var(--bg-color);
+  }
+
+  #services .box {
+    background: #2a2a2a;
+    border-color: #333;
+  }
+
+  #services .icon {
+    border-color: #2a2a2a;
+  }
+
+  #services .title a {
+    color: var(--text-color);
+  }
+
+  #services .description {
+    color: #bbb;
+  }
+
+  #services .box:hover .icon {
+    background: #2a2a2a;
+    border-color: var(--primary-color);
+  }
+
+  #services .box:hover .icon i {
+    color: var(--primary-color);
+  }
+
+  #services .box:hover .icon a {
+    color: var(--primary-color);
+  }
+
+  /* Ajustement pour l'icône du service */
+  #services .icon {
+    background: var(--primary-color);
+  }
+
+  #services .box:hover {
+    border-color: var(--primary-color);
+  }
+
+  /* Portfolio */
+  #portfolio {
+    background: var(--bg-color);
+  }
+
+  #portfolio .portfolio-item {
+    background: #2a2a2a;
+  }
+
+  #portfolio .portfolio-item .details {
+    background: rgba(26, 26, 26, 0.9);
+  }
+
+  #portfolio-flters li {
+    color: var(--text-color);
+    background: #2a2a2a;
+  }
+
+  #portfolio-flters li:hover,
+  #portfolio-flters li.filter-active {
+    background: var(--primary-color);
+    color: #fff;
+  }
+
+  /* Team */
+  #team {
+    background: var(--bg-color);
+  }
+
+  .member {
+    background: #2a2a2a;
+  }
+
+  .member h4 {
+    color: var(--text-color);
+  }
+
+  .member span {
+    color: #bbb;
+  }
+
+  /* Contact */
+  #contact {
+    background: var(--bg-color);
+  }
+
+  .info {
+    background: #2a2a2a;
+  }
+
+  .info i {
+    color: var(--primary-color);
+  }
+
+  .info p {
+    color: var(--text-color);
+  }
+
+  /* Form */
+  .form input,
+  .form textarea {
+    background: #2a2a2a;
+    color: var(--text-color);
+    border-color: #333;
+  }
+
+  .form input:focus,
+  .form textarea:focus {
+    border-color: var(--primary-color);
+  }
+
+  /* Box général */
+  .box {
+    background: #2a2a2a;
+  }
+
+  /* Navigation */
+  .nav-menu a {
+    color: var(--text-color);
+  }
+
+  .nav-menu ul {
+    background: var(--bg-color);
+    border-color: #333;
+  }
+
+  .nav-menu ul li:hover > a {
+    color: var(--primary-color);
+  }
+
+  /* Sections About */
+  #about {
+    background: var(--bg-color);
+  }
+
+  #about .about-container .content {
+    background: #2a2a2a;
+  }
+
+  /* Overlay mobile */
+  #mobile-body-overly {
+    background: rgba(0, 0, 0, 0.9);
+  }
+
+  /* Liens */
+  a {
+    color: var(--primary-color);
+  }
+
+  a:hover {
+    color: #2dca98;
+  }
+
+  /* Boutons */
+  .back-to-top {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .back-to-top:hover {
+    background: var(--primary-color);
+  }
+}
+
+/* Transitions */
+body,
+.box,
+.member,
+.info,
+.form input,
+.form textarea,
+#portfolio .portfolio-item,
+#portfolio-flters li {
+  transition: all 0.3s ease;
 }
 
 
