@@ -1305,6 +1305,93 @@ body.mobile-nav-active #mobile-nav-toggle {
   .back-to-top:hover {
     background: var(--primary-color);
   }
+
+  /* Titres généraux */
+  .title {
+    color: var(--text-color) !important;
+  }
+
+  .title a {
+    color: var(--text-color) !important;
+  }
+
+  .title a:hover {
+    color: var(--primary-color) !important;
+  }
+
+  /* Classes fadeInUp */
+  .fadeInUp {
+    background: var(--bg-color);
+  }
+
+  /* Spécifique pour les sections avec fadeInUp */
+  .wow.fadeInUp {
+    background: transparent;
+  }
+
+  .wow.fadeInUp .box {
+    background: #2a2a2a;
+  }
+
+  .wow.fadeInUp .title {
+    color: var(--text-color) !important;
+  }
+
+  .wow.fadeInUp .title a {
+    color: var(--text-color) !important;
+  }
+
+  .wow.fadeInUp .description {
+    color: #bbb;
+  }
+
+  /* Services spécifiques */
+  #services .wow.fadeInUp .box {
+    background: #2a2a2a;
+    border-color: #333;
+  }
+
+  #services .wow.fadeInUp .title a {
+    color: var(--text-color) !important;
+  }
+
+  #services .wow.fadeInUp .description {
+    color: #bbb;
+  }
+
+  /* About Section avec icon-box */
+  #about .about-container {
+    background: var(--bg-color);
+  }
+
+  #about .about-container .icon-box {
+    background: #2a2a2a;
+  }
+
+  #about .about-container .icon-box .icon {
+    background: #2a2a2a;
+    border-color: var(--primary-color);
+  }
+
+  #about .about-container .icon-box .icon i {
+    color: var(--primary-color);
+  }
+
+  #about .about-container .icon-box .title {
+    color: var(--text-color) !important;
+  }
+
+  #about .about-container .icon-box .title a {
+    color: var(--text-color) !important;
+  }
+
+  #about .about-container .icon-box .description {
+    color: #bbb;
+  }
+
+  #about .about-container p {
+    color: var(--text-color);
+  }
 }
 
 /* Transitions */
@@ -1318,5 +1405,7 @@ body,
 #portfolio-flters li {
   transition: all 0.3s ease;
 }
+
+
 
 
