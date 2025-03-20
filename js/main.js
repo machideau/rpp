@@ -151,3 +151,34 @@ document.addEventListener('DOMContentLoaded', function() {
     }, 300);
   });
 });
+
+$(window).scroll(function() {
+  // Obtenir la position de défilement actuelle
+  var scrollPosition = $(this).scrollTop();
+
+  // Ajouter un offset plus grand pour une meilleure détection
+  var offset = $('#header').outerHeight() + 100;
+
+  // Vérifier chaque section avec un ID
+  $('section[id]').each(function() {
+    var targetSection = $(this);
+    var sectionId = targetSection.attr('id');
+    
+    // Calculer la position de la section
+    var sectionTop = targetSection.offset().top - offset;
+    var sectionBottom = sectionTop + targetSection.outerHeight();
+
+    // Si la position de défilement est dans la section
+    if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+      // Retirer la classe active de tous les éléments li
+      $('.nav-menu li').removeClass('menu-active');
+      // Ajouter la classe active au li parent du lien correspondant
+      $('.nav-menu a[href="#' + sectionId + '"]').parent('li').addClass('menu-active');
+    }
+  });
+});
+
+// Ajouter aussi la détection au chargement de la page
+$(document).ready(function() {
+  $(window).trigger('scroll');
+});
