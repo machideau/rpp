@@ -608,9 +608,9 @@ body.mobile-nav-active #mobile-nav-toggle {
 }
 
 #about .about-container .background {
-  min-height: 300px;
-  background: url(../img/deux.webp) center top no-repeat;
-  margin-bottom: 10px;
+  min-height: 350px;
+  background: url(../img/aboutR.png) center top no-repeat;
+  margin-bottom: 0px;
 }
 
 #about .about-container .content {
